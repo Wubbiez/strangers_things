@@ -2,30 +2,40 @@ import React, { useEffect, useState } from "react";
 import { loginUser, loginValidate } from "../api";
 
 function Login(props) {
-  const { username, setUsername, password, setPassword, token, setToken } =
-    props;
+  const {
+    username,
+    setUsername,
+    password,
+    setPassword,
+    token,
+    setToken,
+    validated,
+    setValidated,
+  } = props;
 
-  const [validated, setValidated] = useState("");
   //
-  useEffect(() => {}, [validated]);
+  useEffect(() => {
+    loginValidate(token).then((r) => {
+      setValidated(r.data.data.message);
+    });
+  }, [token]);
 
   async function buttonHandle() {
     if (!token) {
       try {
-        setToken(await loginUser(username, password));
+        await loginUser(username, password).then((values) => {
+          setToken(values[0]);
+        });
       } catch (e) {
+        setValidated("Incorrect username and/or password!");
         console.error(e);
+      } finally {
+        setUsername("");
         setPassword("");
       }
-      try {
-        const validated = await loginValidate(token);
-        setValidated(validated.data.data.message);
-      } catch (e) {
-        console.error(e);
-        setValidated("Username and/or password are incorrect");
-      }
-    } else {
-      setValidated("You are already logged in!");
+    }
+    if (token) {
+      setValidated("You are already logged in");
     }
   }
 

@@ -3,21 +3,30 @@ import Login from "./components/Login";
 import React, { useState, useEffect } from "react";
 import Signup from "./components/Signup";
 import Posts from "./components/Posts";
+import Logout from "./components/Logout";
 
-const TOKEN_STORAGE_KEY = "user-token";
+export const TOKEN_STORAGE_KEY = "user-token";
 
 function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
   const [posts, setPosts] = useState([]);
+  const [validated, setValidated] = useState("");
 
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     setToken(storageToken);
-  }, [token]);
+  }, [token, validated]);
   return (
     <div>
+      <Logout
+        token={token}
+        setToken={setToken}
+        setUsername={setUsername}
+        setPassword={setPassword}
+        setValidated={setValidated}
+      />
       <Signup
         setUsername={setUsername}
         setPassword={setPassword}
@@ -31,6 +40,8 @@ function App() {
         password={password}
         setToken={setToken}
         token={token}
+        validated={validated}
+        setValidated={setValidated}
       />
       <Posts token={token} setPosts={setPosts} posts={posts} />
     </div>

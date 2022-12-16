@@ -8,7 +8,6 @@ function Posts(props) {
   useEffect(() => {
     try {
       fetchAllPosts(token).then((r) => setPosts(r.data.data.posts));
-      console.log(posts);
     } catch (e) {
       console.error(e);
     }

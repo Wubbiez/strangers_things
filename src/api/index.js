@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import { TOKEN_STORAGE_KEY } from "../App";
 
 export const BASE_URL = "https://strangers-things.herokuapp.com";
 export const COHORT_NAME = "2209-FTB-ET-WEB-PT";
@@ -61,6 +62,7 @@ export async function loginValidate(token) {
       },
     });
     const results = await response;
+    console.log(results);
     return results;
   } catch (e) {
     console.log(e);
