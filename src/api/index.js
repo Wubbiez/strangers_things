@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 export const BASE_URL = "https://strangers-things.herokuapp.com";
-
+export const COHORT_NAME = "2209-FTB-ET-WEB-PT";
 // export async function getPersonalInfo() {
 //   try {
 //     const response = await fetch(`${BASE_URL}/api/2209-ftb-et-web-ps/users/me`);
@@ -10,28 +11,58 @@ export const BASE_URL = "https://strangers-things.herokuapp.com";
 
 export async function registerUser(username, password) {
   try {
-    const response = await fetch(
-      "https://strangers-things.herokuapp.com/api/COHORT-NAME/users/register",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    await fetch(`${BASE_URL}/api/${COHORT_NAME}/users/register`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
         },
-        body: JSON.stringify({
-          user: {
-            username: username,
-            password: password,
-          },
-        }),
-      }
-    );
+      }),
+    });
+  } catch (e) {
+    throw ("err", e);
+  }
+}
+
+export async function loginUser(username, password) {
+  try {
+    const response = await fetch(`${BASE_URL}/api/${COHORT_NAME}/users/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        user: {
+          username: username,
+          password: password,
+        },
+      }),
+    });
     const results = await response.json();
-    console.log(results);
-    console.log(results.data.token);
     if (results.data.token) {
-      localStorage.setItem("jwt", results.data.token);
+      localStorage.setItem("user-token", results.data.token);
+      return localStorage.getItem("user-token");
     }
   } catch (e) {
     throw ("err", e);
+  }
+}
+
+export async function loginValidate(token) {
+  try {
+    const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/test/me`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const results = await response;
+    return results;
+  } catch (e) {
+    console.log("e", e);
   }
 }
