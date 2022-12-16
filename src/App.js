@@ -10,6 +10,7 @@ function App() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [token, setToken] = useState("");
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
@@ -31,7 +32,7 @@ function App() {
         setToken={setToken}
         token={token}
       />
-      <Posts token={token} />
+      <Posts token={token} setPosts={setPosts} posts={posts} />
     </div>
   );
 }

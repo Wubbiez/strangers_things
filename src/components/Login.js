@@ -7,18 +7,25 @@ function Login(props) {
 
   const [validated, setValidated] = useState("");
   //
-  // useEffect(() => {}, [token]);
+  useEffect(() => {}, [validated]);
 
   async function buttonHandle() {
-    console.log(username, password);
-    try {
-      setToken(await loginUser(username, password));
-    } catch (e) {
-      alert("That username and/or password is incorrect!");
-    } finally {
-      const validationText = await loginValidate(token);
-      console.log(validationText);
-      setValidated(validationText.data.data.message);
+    if (!token) {
+      try {
+        setToken(await loginUser(username, password));
+      } catch (e) {
+        console.error(e);
+        setPassword("");
+      }
+      try {
+        const validated = await loginValidate(token);
+        setValidated(validated.data.data.message);
+      } catch (e) {
+        console.error(e);
+        setValidated("Username and/or password are incorrect");
+      }
+    } else {
+      setValidated("You are already logged in!");
     }
   }
 
@@ -36,6 +43,7 @@ function Login(props) {
       <input
         placeholder="Enter Your Password"
         value={password}
+        type={"password"}
         onChange={async (event) => {
           event.preventDefault();
           setPassword(event.target.value);

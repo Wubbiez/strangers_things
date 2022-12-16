@@ -8,6 +8,7 @@ function Signup(props) {
     try {
       await registerUser(username, password);
       setPassword("");
+      setUsername("");
     } catch (e) {
       alert("That username is already taken!");
     }
@@ -27,6 +28,7 @@ function Signup(props) {
       <input
         placeholder="Enter Your Password"
         value={password}
+        type={"password"}
         onChange={async (event) => {
           event.preventDefault();
           setPassword(event.target.value);

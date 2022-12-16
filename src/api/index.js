@@ -63,6 +63,21 @@ export async function loginValidate(token) {
     const results = await response;
     return results;
   } catch (e) {
-    console.log("e", e);
+    console.log(e);
+  }
+}
+
+export async function fetchAllPosts(token) {
+  try {
+    const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    const results = await response;
+    return results;
+  } catch (e) {
+    console.error(e);
   }
 }
