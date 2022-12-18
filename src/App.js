@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import Signup from "./components/Signup";
 import Posts from "./components/Posts";
 import Logout from "./components/Logout";
+import UserPosts from "./components/User_Posts";
 
 export const TOKEN_STORAGE_KEY = "user-token";
 
@@ -13,6 +14,7 @@ function App() {
   const [token, setToken] = useState("");
   const [posts, setPosts] = useState([]);
   const [validated, setValidated] = useState("");
+  const [userPosts, setUserPosts] = useState([]);
 
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
@@ -44,6 +46,11 @@ function App() {
         setValidated={setValidated}
       />
       <Posts token={token} setPosts={setPosts} posts={posts} />
+      <UserPosts
+        token={token}
+        setUserPosts={setUserPosts}
+        userPosts={userPosts}
+      />
     </div>
   );
 }

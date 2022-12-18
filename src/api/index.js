@@ -83,3 +83,23 @@ export async function fetchAllPosts(token) {
     console.error(e);
   }
 }
+
+export async function createPost(token)
+
+export async function fetchUserPosts(token) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/api/${COHORT_NAME}/users/me`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const results = await response;
+    return results;
+  } catch (e) {
+    console.error(e);
+  }
+}
