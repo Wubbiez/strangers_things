@@ -58,7 +58,7 @@ export async function loginValidate(token) {
     const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/test/me`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
     const results = await response;
@@ -74,7 +74,7 @@ export async function fetchAllPosts(token) {
     const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`,
+        "Authorization": `Bearer ${token}`,
       },
     });
     const results = await response;
@@ -84,7 +84,36 @@ export async function fetchAllPosts(token) {
   }
 }
 
-export async function createPost(token)
+export async function createPost(token,title,description,price,willDeliver) {
+  console.log(token,title,description,price,willDeliver);
+  console.log('hi');
+  try {
+    const response = await fetch(
+        `${BASE_URL}/api/${COHORT_NAME}/posts`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`,
+          },
+          body: JSON.stringify({
+            post: {
+              title: `${title}`,
+              description: `${description}`,
+              price: `${price}`,
+              willDeliver: `${willDeliver}`
+            }
+          })
+        }
+    );
+
+    const results = await response;
+    console.log(results);
+  } catch (e) {
+    console.error(e);
+  }
+}
+
 
 export async function fetchUserPosts(token) {
   try {
@@ -93,7 +122,7 @@ export async function fetchUserPosts(token) {
       {
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          "Authorization": `Bearer ${token}`,
         },
       }
     );
@@ -101,5 +130,21 @@ export async function fetchUserPosts(token) {
     return results;
   } catch (e) {
     console.error(e);
+  }
+}
+
+export async function deletePost(token,postID) {
+  try {
+    const response = await axios.delete(
+        `${BASE_URL}/api/${COHORT_NAME}/posts/${postID}`,
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+        }
+    );
+  } catch (e) {
+    console.error(e)
   }
 }

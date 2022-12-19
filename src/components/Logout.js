@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 function Logout(props) {
-  const { setToken, setUsername, setPassword, token, setValidated } = props;
+  const { setToken, setUsername, setPassword, token, setValidated, setUserPosts } = props;
 
-  useEffect(() => {}, [token]);
+
 
   function buttonHandle() {
     setToken("");
@@ -11,6 +11,7 @@ function Logout(props) {
     setUsername("");
     setPassword("");
     setValidated("");
+    setUserPosts([]);
   }
 
   return (

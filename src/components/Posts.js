@@ -11,7 +11,7 @@ function Posts(props) {
     } catch (e) {
       console.error(e);
     }
-  }, []);
+  }, [posts]);
 
   return (
     <div>

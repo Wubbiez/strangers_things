@@ -4,7 +4,8 @@ import React, { useState, useEffect } from "react";
 import Signup from "./components/Signup";
 import Posts from "./components/Posts";
 import Logout from "./components/Logout";
-import UserPosts from "./components/User_Posts";
+import UserPosts from "./components/UserPosts";
+import CreatePost from './components/CreatePost';
 
 export const TOKEN_STORAGE_KEY = "user-token";
 
@@ -19,7 +20,7 @@ function App() {
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     setToken(storageToken);
-  }, [token, validated]);
+  }, [token]);
   return (
     <div>
       <Logout
@@ -28,6 +29,7 @@ function App() {
         setUsername={setUsername}
         setPassword={setPassword}
         setValidated={setValidated}
+        setUserPosts={setUserPosts}
       />
       <Signup
         setUsername={setUsername}
@@ -51,6 +53,7 @@ function App() {
         setUserPosts={setUserPosts}
         userPosts={userPosts}
       />
+      <CreatePost token={token} />
     </div>
   );
 }
