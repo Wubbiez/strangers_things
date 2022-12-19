@@ -133,10 +133,10 @@ export async function fetchUserPosts(token) {
   }
 }
 
-export async function deletePost(token,postID) {
+export async function deletePost(token,postId) {
   try {
     const response = await axios.delete(
-        `${BASE_URL}/api/${COHORT_NAME}/posts/${postID}`,
+        `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
         {
           headers: {
             'Content-Type': 'application/json',
@@ -147,4 +147,34 @@ export async function deletePost(token,postID) {
   } catch (e) {
     console.error(e)
   }
+}
+
+export async function editPost(token,postId,title,description,price,willDeliver) {
+  try {
+    const response = await fetch(
+        `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
+        {
+        method:"PATCH",
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${token}`,
+          },
+
+          body: JSON.stringify({
+            post: {
+              title: `${title}`,
+              description: `${description}`,
+              price: `${price}`,
+              willDeliver: `${willDeliver}`
+            }
+          })
+        }
+    )
+    const results = await response;
+    console.log(results);
+  } catch (e) {
+    console.error(e)
+  }
+
+
 }

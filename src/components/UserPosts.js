@@ -1,9 +1,8 @@
 import React, { useState, useEffect } from "react";
-
-import { fetchUserPosts,deletePost } from "../api";
+import { fetchUserPosts,deletePost, editPost } from "../api";
 
 function UserPosts(props) {
-  const { token, setUserPosts, userPosts } = props;
+  const { token,title,setTitle, description, setDescription, price,setPrice, willDeliver, setWillDeliver, userPosts,setUserPosts  } = props;
 
   useEffect(() => {
     try {
@@ -12,6 +11,15 @@ function UserPosts(props) {
       console.error(e);
     }
   }, [userPosts,token]);
+
+  function editHandle() {
+    console.log('hi')
+    return (
+        <li>Hi</li>
+    )
+
+  }
+
 
 
   return (
@@ -29,8 +37,17 @@ function UserPosts(props) {
                   console.error(e)
                 }
                 }}>Delete
-              </button></li>
-              : null
+              </button>
+                <button onClick={() => {
+                  editHandle();
+                  try {
+                    editPost(token,post._id,title,description,price,willDeliver)
+                  } catch (e) {
+                    console.error(e)
+                  }
+                }}>Edit
+              </button>
+              </li> : null
           );
         }): null}
       </ul>

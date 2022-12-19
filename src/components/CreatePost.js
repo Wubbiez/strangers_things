@@ -2,12 +2,8 @@ import React, { useState, useEffect } from "react";
 import {createPost} from '../api';
 
 function CreatePost (props) {
-  const {token} = props;
+  const {token,title,setTitle, description, setDescription, price,setPrice, willDeliver, setWillDeliver  } = props;
 
-  const [title,setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [price,setPrice] = useState('');
-  const [willDeliver, setWillDeliver] =useState(false)
 
 return (
     <form

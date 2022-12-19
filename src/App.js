@@ -17,6 +17,11 @@ function App() {
   const [validated, setValidated] = useState("");
   const [userPosts, setUserPosts] = useState([]);
 
+  const [title,setTitle] = useState('');
+  const [description, setDescription] = useState('');
+  const [price,setPrice] = useState('');
+  const [willDeliver, setWillDeliver] =useState(false)
+
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     setToken(storageToken);
@@ -52,8 +57,26 @@ function App() {
         token={token}
         setUserPosts={setUserPosts}
         userPosts={userPosts}
+        title={title}
+        setTitle={setTitle}
+        description={description}
+        setDescription={setDescription}
+        price={price}
+        setPrice={setPrice}
+        willDeliver={willDeliver}
+        setWillDeliver={setWillDeliver}
       />
-      <CreatePost token={token} />
+      <CreatePost
+          token={token}
+        title={title}
+        setTitle={setTitle}
+        description={description}
+        setDescription={setDescription}
+        price={price}
+        setPrice={setPrice}
+        willDeliver={willDeliver}
+          setWillDeliver={setWillDeliver}
+          />
     </div>
   );
 }
