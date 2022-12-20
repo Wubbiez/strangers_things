@@ -18,7 +18,14 @@ function Posts(props) {
       <h1>This is the posts page</h1>
       <ul>
         {posts.map((post) => {
-          return <li>{post.title}</li>;
+          return (
+            <li>
+              {post.title}
+              <ul>
+                <li>{post.description}</li>
+              </ul>
+            </li>
+          );
         })}
       </ul>
     </div>
