@@ -198,7 +198,11 @@ export async function getUser(token) {
       }
     );
     const results = await response;
-    return results;
+    console.log(response);
+    if (results.data.data.username) {
+      localStorage.setItem("user-name", results.data.data.username);
+      return localStorage.getItem("user-name");
+    }
   } catch (e) {
     console.error(e);
   }

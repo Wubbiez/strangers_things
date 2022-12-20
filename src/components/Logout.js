@@ -7,6 +7,7 @@ function Logout(props) {
   function buttonHandle() {
     setToken("");
     localStorage.setItem("user-token", "");
+    localStorage.setItem("user-name", "");
     setUsername("");
     setPassword("");
     setValidated("");

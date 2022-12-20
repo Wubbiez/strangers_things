@@ -5,13 +5,11 @@ import { TOKEN_STORAGE_KEY } from "../App";
 
 function Header(props) {
   const { token, user, setUser } = props;
-
+  console.log(user);
   useEffect(() => {}, [token]);
   return (
     <header>
-      {token ? (
-        <div>Welcome {user.data.data.username.toUpperCase()}!</div>
-      ) : null}
+      {token ? <div>Welcome {user}!</div> : null}
       {!token ? <div>Welcome Guest!</div> : null}
 
       <Link to={"/home"}>Home</Link>
