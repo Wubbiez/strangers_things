@@ -58,7 +58,7 @@ export async function loginValidate(token) {
     const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/test/me`, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const results = await response;
@@ -74,7 +74,7 @@ export async function fetchAllPosts(token) {
     const response = await axios.get(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
       headers: {
         "Content-Type": "application/json",
-        "Authorization": `Bearer ${token}`,
+        Authorization: `Bearer ${token}`,
       },
     });
     const results = await response;
@@ -84,28 +84,31 @@ export async function fetchAllPosts(token) {
   }
 }
 
-export async function createPost(token,title,description,price,willDeliver) {
-  console.log(token,title,description,price,willDeliver);
-  console.log('hi');
+export async function createPost(
+  token,
+  title,
+  description,
+  price,
+  willDeliver
+) {
+  console.log(token, title, description, price, willDeliver);
+  console.log("hi");
   try {
-    const response = await fetch(
-        `${BASE_URL}/api/${COHORT_NAME}/posts`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`,
-          },
-          body: JSON.stringify({
-            post: {
-              title: `${title}`,
-              description: `${description}`,
-              price: `${price}`,
-              willDeliver: `${willDeliver}`
-            }
-          })
-        }
-    );
+    const response = await fetch(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        post: {
+          title: `${title}`,
+          description: `${description}`,
+          price: `${price}`,
+          willDeliver: `${willDeliver}`,
+        },
+      }),
+    });
 
     const results = await response;
     console.log(results);
@@ -114,7 +117,6 @@ export async function createPost(token,title,description,price,willDeliver) {
   }
 }
 
-
 export async function fetchUserPosts(token) {
   try {
     const response = await axios.get(
@@ -122,7 +124,7 @@ export async function fetchUserPosts(token) {
       {
         headers: {
           "Content-Type": "application/json",
-          "Authorization": `Bearer ${token}`,
+          Authorization: `Bearer ${token}`,
         },
       }
     );
@@ -133,48 +135,71 @@ export async function fetchUserPosts(token) {
   }
 }
 
-export async function deletePost(token,postId) {
+export async function deletePost(token, postId) {
   try {
     const response = await axios.delete(
-        `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
-        {
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
-        }
+      `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
     );
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
 }
 
-export async function editPost(token,postId,title,description,price,willDeliver) {
+export async function editPost(
+  token,
+  postId,
+  title,
+  description,
+  price,
+  willDeliver
+) {
   try {
     const response = await fetch(
-        `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
-        {
-        method:"PATCH",
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`,
-          },
+      `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
 
-          body: JSON.stringify({
-            post: {
-              title: `${title}`,
-              description: `${description}`,
-              price: `${price}`,
-              willDeliver: `${willDeliver}`
-            }
-          })
-        }
-    )
+        body: JSON.stringify({
+          post: {
+            title: `${title}`,
+            description: `${description}`,
+            price: `${price}`,
+            willDeliver: `${willDeliver}`,
+          },
+        }),
+      }
+    );
     const results = await response;
     console.log(results);
   } catch (e) {
-    console.error(e)
+    console.error(e);
   }
+}
 
-
+export async function getUser(token) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/api/${COHORT_NAME}/users/me`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const results = await response;
+    return results;
+  } catch (e) {
+    console.error(e);
+  }
 }

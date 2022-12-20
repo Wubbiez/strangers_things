@@ -11,7 +11,7 @@ function Posts(props) {
     } catch (e) {
       console.error(e);
     }
-  }, [posts]);
+  }, [token, setPosts]);
 
   return (
     <div>
@@ -19,10 +19,10 @@ function Posts(props) {
       <ul>
         {posts.map((post) => {
           return (
-            <li>
+            <li key={post._id}>
               {post.title}
               <ul>
-                <li>{post.description}</li>
+                <li key={post._id}>{post.description}</li>
               </ul>
             </li>
           );

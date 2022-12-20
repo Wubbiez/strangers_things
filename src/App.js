@@ -5,8 +5,10 @@ import Posts from "./components/Posts";
 import Logout from "./components/Logout";
 import UserPosts from "./components/UserPosts";
 import CreatePost from "./components/CreatePost";
+import Header from "./components/Header";
 import React, { useState, useEffect } from "react";
 import { Switch, Route } from "react-router-dom";
+import { getUser } from "./api";
 
 export const TOKEN_STORAGE_KEY = "user-token";
 
@@ -23,14 +25,20 @@ function App() {
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(false);
 
+  const [user, setUser] = useState(null);
+
   useEffect(() => {
     const storageToken = localStorage.getItem(TOKEN_STORAGE_KEY);
     setToken(storageToken);
+    getUser(token).then((r) => {
+      setUser(r);
+    });
   }, [token]);
   return (
     <div>
       <Switch>
-        <Route exact path={"/logout"}>
+        <Route exact path={"/home"}>
+          <Header token={token} user={user} setUser={setUser} />
           <Logout
             token={token}
             setToken={setToken}
@@ -38,6 +46,7 @@ function App() {
             setPassword={setPassword}
             setValidated={setValidated}
             setUserPosts={setUserPosts}
+            setUser={setUser}
           />
         </Route>
         <Route exact path={"/register"}>
