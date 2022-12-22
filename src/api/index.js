@@ -4,11 +4,6 @@ import { TOKEN_STORAGE_KEY } from "../App";
 
 export const BASE_URL = "https://strangers-things.herokuapp.com";
 export const COHORT_NAME = "2209-FTB-ET-WEB-PT";
-// export async function getPersonalInfo() {
-//   try {
-//     const response = await fetch(`${BASE_URL}/api/2209-ftb-et-web-ps/users/me`);
-//   }
-// }
 
 export async function registerUser(username, password) {
   try {
@@ -62,7 +57,6 @@ export async function loginValidate(token) {
       },
     });
     const results = await response;
-    console.log(results);
     return results;
   } catch (e) {
     console.log(e);
@@ -198,11 +192,28 @@ export async function getUser(token) {
       }
     );
     const results = await response;
-    console.log(response);
     if (results.data.data.username) {
       localStorage.setItem("user-name", results.data.data.username);
       return localStorage.getItem("user-name");
     }
+  } catch (e) {
+    console.error(e);
+  }
+}
+
+export async function getPost(token, postId) {
+  try {
+    const response = await axios.get(
+      `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const results = await response;
+    return results;
   } catch (e) {
     console.error(e);
   }

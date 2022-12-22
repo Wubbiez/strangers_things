@@ -1,8 +1,14 @@
 import React, { useEffect, useState } from "react";
 
 function Logout(props) {
-  const { setToken, setUsername, setPassword, setValidated, setUserPosts } =
-    props;
+  const {
+    setToken,
+    setUsername,
+    setPassword,
+    setValidated,
+    setUserPosts,
+    setPostId,
+  } = props;
 
   function buttonHandle() {
     setToken("");
@@ -12,12 +18,13 @@ function Logout(props) {
     setPassword("");
     setValidated("");
     setUserPosts([]);
+    setPostId("");
   }
 
   return (
-    <header>
+    <div>
       <button onClick={buttonHandle}>Logout</button>
-    </header>
+    </div>
   );
 }
 

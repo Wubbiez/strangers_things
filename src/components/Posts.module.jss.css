@@ -1,0 +1,19 @@
+.container {
+    display: flex;
+    background: brown;
+}
+
+table {
+    background: aliceblue;
+    display: flex;
+    flex-direction: column;
+    margin: 1em;
+    width: 50vw;
+    justify-content: center;
+    align-content: center;
+}
+
+div {
+    align-content: center;
+    justify-content: center;
+}
