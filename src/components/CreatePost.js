@@ -65,7 +65,7 @@ function CreatePost(props) {
         <label htmlFor="price">Price:</label>
         <input
           id="price"
-          type="text"
+          type="number"
           required={true}
           placeholder="Enter Item Price"
           value={price}

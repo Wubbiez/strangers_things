@@ -39,7 +39,6 @@ function Posts(props) {
                   setPrice(post.price);
                   setTitle(post.title);
                   setWillDeliver(post.willDeliver);
-                  console.log("hi");
                 }}
               >
                 <Link to={`/${post._id}`}>{post.title}</Link>

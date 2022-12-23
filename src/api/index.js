@@ -218,3 +218,47 @@ export async function getPost(token, postId) {
     console.error(e);
   }
 }
+
+export async function postMessage(token, postId, messageText) {
+  fetch(`${BASE_URL}/api/${COHORT_NAME}/posts/${postId}/messages`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      message: {
+        content: messageText,
+      },
+    }),
+  })
+    .then((response) => response.json())
+    .then((result) => {
+      console.log(result);
+    })
+    .catch(console.error);
+
+  // console.log(postId);
+  // console.log(token);
+  // console.log(messageText);
+  // try {
+  //   const response = await axios.post(
+  //     `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}/messages`,
+  //     {
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${token}`,
+  //       },
+  //       body: JSON.stringify({
+  //         message: {
+  //           content: { messageText },
+  //         },
+  //       }),
+  //     }
+  //   );
+  //   const results = await response;
+  //   console.log(results);
+  // } catch (e) {
+  //   console.error(e);
+  // }
+}
