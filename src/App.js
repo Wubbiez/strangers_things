@@ -23,6 +23,7 @@ function App() {
   const [validated, setValidated] = useState("");
   const [userPosts, setUserPosts] = useState([]);
   const [postId, setPostId] = useState("");
+  const [currentPage, setCurrentPage] = useState("");
 
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
@@ -43,6 +44,7 @@ function App() {
       <Header
         token={token}
         user={user}
+        currentPage={currentPage}
         setUser={setUser}
         setToken={setToken}
         setUsername={setUsername}
@@ -50,6 +52,7 @@ function App() {
         setValidated={setValidated}
         setUserPosts={setUserPosts}
         setPostId={setPostId}
+        setCurrentPage={setCurrentPage}
       />
       <main className={styles.main}>
         <Switch>
@@ -86,6 +89,7 @@ function App() {
               setPrice={setPrice}
               setWillDeliver={setWillDeliver}
               setTitle={setTitle}
+              user={user}
             />
           </Route>
           <Route exact path={"/userposts"}>

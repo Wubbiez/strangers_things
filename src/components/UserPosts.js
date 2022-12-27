@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { fetchUserPosts, deletePost, editPost, postMessage } from "../api";
 import CreatePost from "./CreatePost";
 import { Link } from "react-router-dom";
+import styles from "./UserPosts.module.css";
 
 function UserPosts(props) {
   const {
@@ -19,6 +20,8 @@ function UserPosts(props) {
   } = props;
 
   const [postsLoaded, setPostsLoaded] = useState(false);
+  const [messageText, setMessageText] = useState("");
+  const [sendingMessage, setSendingMessage] = useState(false);
 
   useEffect(() => {
     try {
@@ -27,17 +30,7 @@ function UserPosts(props) {
       console.error(e);
     }
     setPostsLoaded(true);
-  }, [token, setUserPosts, postsLoaded]);
-
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     try {
-  //       fetchUserPosts(token).then((r) => setUserPosts(r.data.data.posts));
-  //     } catch (e) {
-  //       console.error(e);
-  //     }
-  //   }, 5000);
-  // }, []);
+  }, [token, setUserPosts, postsLoaded, sendingMessage]);
 
   const useToggle = (initialState) => {
     const [toggleValue, setToggleValue] = useState(initialState);
@@ -48,10 +41,20 @@ function UserPosts(props) {
     return [toggleValue, toggler];
   };
 
+  const useToggle2 = (initialState) => {
+    const [toggleValue2, setToggleValue2] = useState(initialState);
+
+    const toggler2 = () => {
+      setToggleValue2(!toggleValue2);
+    };
+    return [toggleValue2, toggler2];
+  };
+
   const [toggle, setToggle] = useToggle();
+  const [toggle2, setToggle2] = useToggle2();
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>This is the user posts page</h1>
       {token
         ? userPosts.map((post) => {
@@ -172,8 +175,42 @@ function UserPosts(props) {
                         </tr>
                       );
                     })}
+                    <button onClick={setToggle2}>Reply</button>
                   </table>
                 ) : null}
+                {toggle2 && (
+                  <form
+                    id="sendMessage"
+                    onSubmit={async (event) => {
+                      event.preventDefault();
+                      setSendingMessage(true);
+                      setMessageText("");
+
+                      try {
+                        await postMessage(token, post._id, messageText);
+                      } catch (e) {
+                        console.error(e);
+                      } finally {
+                        setSendingMessage(false);
+                      }
+                    }}
+                  >
+                    <fieldset>
+                      <label htmlFor="messageText">Type Message Here:</label>
+                      <input
+                        id="messageText"
+                        type="text"
+                        placeholder="..."
+                        value={messageText}
+                        onChange={async (event) => {
+                          event.preventDefault();
+                          setMessageText(event.target.value);
+                        }}
+                      />
+                    </fieldset>
+                    <button>SEND</button>
+                  </form>
+                )}
               </>
             ) : null;
           })

@@ -1,11 +1,54 @@
 .container {
-    background: #61dafb;
+    background: darkslateblue;
     display: flex;
-    justify-content: space-evenly;
-    height: 10vh;
-    max-height: 10vh;
+    max-height: 20vh;
     width: 100vw;
     max-width: 100vw;
-    border-bottom: solid 1px black;
-    align-content: center;
+    justify-content: space-between;
 }
+
+.container a {
+    margin: 5px;
+    justify-content: center;
+    height: 20px;
+}
+
+.container a:hover {
+    box-shadow: 0 2px 5px -2px black;
+}
+
+.user {
+    background: aliceblue;
+    text-transform: capitalize;
+    text-align: center;
+    padding: .5em;
+
+}
+
+.headerLogo {
+    display: flex;
+    flex-direction: column;
+    max-width: 25vw;
+    max-height: 15vh;
+    flex-grow: 1;
+    margin: 15px;
+    align-content: center;
+    justify-content: center;
+    padding: 1em;
+}
+
+.links {
+    display: flex;
+    flex-direction: column;
+    width: 12vw;
+
+    justify-content: space-evenly;
+    text-align: end;
+    padding-right: 5px;
+}
+
+.links a {
+    background: white;
+    font-size: 1em;
+}
+

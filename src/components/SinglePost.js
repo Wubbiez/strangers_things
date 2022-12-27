@@ -33,10 +33,6 @@ function SinglePost(props) {
 
   const [toggle, setToggle] = useToggle();
 
-  function messageButton() {
-    return <tr>You pressed the button!</tr>;
-  }
-
   return (
     <div>
       <>
@@ -51,6 +47,16 @@ function SinglePost(props) {
           ) : null}
         </table>
       </>
+      {/*{post.messages.length > 0 ? (*/}
+      {/*    <table>*/}
+      {/*      <th>Messages</th>*/}
+      {/*      {post.messages.map((message) => {*/}
+      {/*        return (*/}
+      {/*            <tr>*/}
+      {/*              {message.fromUser.username}: {message.content}*/}
+      {/*            </tr>*/}
+      {/*        );*/}
+      {/*      })}*/}
       {toggle && (
         <form
           id="sendMessage"
