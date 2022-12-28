@@ -45,7 +45,7 @@
 }
 
 .container table:last-child {
-    border-bottom: 0px;
+    border-bottom: 0;
 }
 
 .container table button {
@@ -90,17 +90,17 @@
 
 .sendMessage button {
     width: 15vw;
-    margin-left: 0px;
+    margin-left: 0;
 
 
 }
 
 .container button {
-    padding: 0px;
+    padding: 0;
 }
 
 .editForm fieldset {
-    padding: 0px;
+    padding: 0;
 }
 
 #editMessage {
