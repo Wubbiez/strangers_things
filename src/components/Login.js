@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { loginUser, loginValidate } from "../api";
 import styles from "./Login.module.css";
 
@@ -19,7 +19,7 @@ function Login(props) {
     loginValidate(token).then((r) => {
       setValidated(r.data.data.message);
     });
-  }, [token]);
+  }, [token, setValidated]);
 
   async function buttonHandle() {
     if (!token) {

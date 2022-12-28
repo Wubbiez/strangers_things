@@ -44,6 +44,10 @@
     border-bottom: 1px solid black;
 }
 
+.container table:last-child {
+    border-bottom: 0px;
+}
+
 .container table button {
     width: 20vw;
 }
