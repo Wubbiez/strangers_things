@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { registerUser } from "../api";
+import styles from "./Signup.module.css";
 
 function Signup(props) {
   const { username, setUsername, password, setPassword } = props;
@@ -15,7 +16,7 @@ function Signup(props) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>This is the Sign-up page</h1>
       <input
         placeholder="Enter Your Username"

@@ -45,19 +45,21 @@ function SinglePost(props) {
           <h1>Expanded post view</h1>
         </div>
         <div className={styles.cards}>
-          <table>
-            <th>{title}</th>
-            <tr>Description: {description}</tr>
-            <tr>Location: {location}</tr>
-            <tr>Price: {price}</tr>
-            <tr>Delivery: {willDeliver}</tr>
-            <tr>Seller: {seller}</tr>
-            {token && seller !== user ? (
-              <tr id={styles.contact}>
-                <button onClick={setToggle}>Contact Seller!</button>
-              </tr>
-            ) : null}
-          </table>
+          <div>
+            <table>
+              <th>{title}</th>
+              <tr>Description: {description}</tr>
+              <tr>Location: {location}</tr>
+              <tr>Price: {price}</tr>
+              <tr>Delivery: {willDeliver}</tr>
+              <tr>Seller: {seller}</tr>
+            </table>
+          </div>
+          {token && seller !== user ? (
+            <div className={styles.contact}>
+              <button onClick={setToggle}>Contact Seller!</button>
+            </div>
+          ) : null}
         </div>
         <div className={styles.messageForm}>
           {toggle && (

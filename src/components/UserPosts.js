@@ -25,6 +25,7 @@ function UserPosts(props) {
   const [messageText, setMessageText] = useState("");
   const [sendingMessage, setSendingMessage] = useState(false);
   const [postId, setPostId] = useState("");
+  const [postTitle, setPostTitle] = useState("");
 
   useEffect(() => {
     try {
@@ -85,6 +86,7 @@ function UserPosts(props) {
                             onClick={() => {
                               setToggle();
                               setTitle(post.title);
+                              setPostTitle(post.title);
                               setLocation(post.location);
                               setPrice(post.price);
                               setDescription(post.description);
@@ -174,7 +176,7 @@ function UserPosts(props) {
                         )}
                       </div>
                     ) : null}
-                    {toggle && title == post.title && (
+                    {toggle && post.title == postTitle && (
                       <div className={styles.editForm}>
                         <form
                           id="editMessage"

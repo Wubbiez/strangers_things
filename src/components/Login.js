@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { loginUser, loginValidate } from "../api";
+import styles from "./Login.module.css";
 
 function Login(props) {
   const {
@@ -40,7 +41,7 @@ function Login(props) {
   }
 
   return (
-    <div>
+    <div className={styles.container}>
       <h1>This is the Log-in page</h1>
       <input
         placeholder="Enter Your Username"

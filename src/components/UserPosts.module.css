@@ -17,11 +17,13 @@
     width: 100vw;
     height: 15vh;
     margin-left: 1em;
+
+
 }
 
 .post {
     height: 15vh;
-    flex-basis: 15vw;
+    flex-basis: 20vw;
 }
 
 .messages {
@@ -32,14 +34,27 @@
     margin-left: 1em;
 }
 
+.container table th {
+    background: antiquewhite;
+    color: black;
+}
+
+.container table tr {
+    color: royalblue;
+    border-bottom: 1px solid black;
+}
+
+.container table button {
+    width: 20vw;
+}
 
 .container table {
-    background: aliceblue;
+    background-color: powderblue;
+    color: teal;
     display: flex;
     flex-direction: column;
     align-content: center;
     box-shadow: 0 2px 4px -1px black;
-
     overflow-y: scroll;
 }
 
@@ -70,7 +85,6 @@
 }
 
 .sendMessage button {
-    background: red;
     width: 15vw;
     margin-left: 0px;
 

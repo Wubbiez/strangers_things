@@ -1,7 +1,5 @@
 import { Link } from "react-router-dom";
-import { getUser } from "../api";
 import { useEffect, useState } from "react";
-import { TOKEN_STORAGE_KEY } from "../App";
 import styles from "./Header.module.css";
 import Logout from "./Logout";
 import logo from "../images/logo.png";

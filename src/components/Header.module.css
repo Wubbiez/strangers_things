@@ -40,7 +40,7 @@
 .links {
     display: flex;
     flex-direction: column;
-    width: 12vw;
+    width: 8vw;
 
     justify-content: space-evenly;
     text-align: end;

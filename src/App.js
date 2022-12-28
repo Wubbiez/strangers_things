@@ -2,7 +2,7 @@ import "./App.module.css";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Posts from "./components/Posts";
-import Logout from "./components/Logout";
+import Home from "./components/Home";
 import UserPosts from "./components/UserPosts";
 import CreatePost from "./components/CreatePost";
 import Header from "./components/Header";
@@ -58,7 +58,9 @@ function App() {
       />
       <main className={styles.main}>
         <Switch>
-          <Route exact path={"/home"}></Route>
+          <Route exact path={"/home"}>
+            <Home />
+          </Route>
           <Route exact path={"/register"}>
             <Signup
               setUsername={setUsername}
