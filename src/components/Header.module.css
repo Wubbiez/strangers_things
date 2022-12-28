@@ -28,7 +28,7 @@
 .headerLogo {
     display: flex;
     flex-direction: column;
-    max-width: 25vw;
+    max-width: 20vw;
     max-height: 15vh;
     flex-grow: 1;
     margin: 15px;

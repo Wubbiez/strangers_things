@@ -1,18 +1,46 @@
 .container {
     display: flex;
     flex-direction: column;
-
+    flex-wrap: wrap;
+    width: 100vw;
+    margin-left: auto;
+    margin-right: auto;
 }
+
+.container h1 {
+    text-align: center;
+}
+
+.posts {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 15vh;
+    margin-left: 1em;
+}
+
+.post {
+    height: 15vh;
+    flex-basis: 15vw;
+}
+
+.messages {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 15vw;
+    height: 15vh;
+    margin-left: 1em;
+}
+
 
 .container table {
     background: aliceblue;
     display: flex;
     flex-direction: column;
-    margin: 1em;
-    width: 50vw;
-    justify-content: center;
     align-content: center;
     box-shadow: 0 2px 4px -1px black;
+
+    overflow-y: scroll;
 }
 
 .item-name {
@@ -24,3 +52,46 @@
     font-size: 1.2em;
     color: teal;
 }
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    margin-left: 1em;
+}
+
+.sendMessage {
+    display: flex;
+    flex-direction: column;
+    width: 15vw;
+
+    align-content: center;
+    justify-content: center;
+}
+
+.sendMessage button {
+    background: red;
+    width: 15vw;
+    margin-left: 0px;
+
+
+}
+
+.container button {
+    padding: 0px;
+}
+
+.editForm fieldset {
+    padding: 0px;
+}
+
+#editMessage {
+    display: flex;
+}
+
+.editForm button {
+    align-content: center;
+    text-align: center;
+    width: 20vw;
+}
+

@@ -29,6 +29,8 @@ function App() {
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
   const [willDeliver, setWillDeliver] = useState(false);
+  const [location, setLocation] = useState("");
+  const [seller, setSeller] = useState("");
 
   const [user, setUser] = useState(null);
 
@@ -89,6 +91,8 @@ function App() {
               setPrice={setPrice}
               setWillDeliver={setWillDeliver}
               setTitle={setTitle}
+              setLocation={setLocation}
+              setSeller={setSeller}
               user={user}
             />
           </Route>
@@ -105,6 +109,8 @@ function App() {
               setPrice={setPrice}
               willDeliver={willDeliver}
               setWillDeliver={setWillDeliver}
+              location={location}
+              setLocation={setLocation}
             />
           </Route>
           <Route exact path={"/createpost"}>
@@ -118,6 +124,8 @@ function App() {
               setPrice={setPrice}
               willDeliver={willDeliver}
               setWillDeliver={setWillDeliver}
+              location={location}
+              setLocation={setLocation}
             />
           </Route>
           <Route exact path={`/${postId}`}>
@@ -132,7 +140,13 @@ function App() {
               setPrice={setPrice}
               willDeliver={willDeliver}
               setWillDeliver={setWillDeliver}
+              location={location}
+              setLocation={setLocation}
               postId={postId}
+              seller={seller}
+              setSeller={setSeller}
+              user={user}
+              posts={posts}
             />
           </Route>
         </Switch>

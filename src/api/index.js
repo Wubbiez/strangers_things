@@ -83,10 +83,9 @@ export async function createPost(
   title,
   description,
   price,
-  willDeliver
+  willDeliver,
+  location
 ) {
-  console.log(token, title, description, price, willDeliver);
-  console.log("hi");
   try {
     const response = await fetch(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
       method: "POST",
@@ -100,12 +99,10 @@ export async function createPost(
           description: `${description}`,
           price: `${price}`,
           willDeliver: `${willDeliver}`,
+          location: `${location}`,
         },
       }),
     });
-
-    const results = await response;
-    console.log(results);
   } catch (e) {
     console.error(e);
   }

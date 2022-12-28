@@ -2,8 +2,8 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-
-
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .container table {
@@ -14,6 +14,7 @@
     justify-content: center;
     align-content: center;
     box-shadow: 0 2px 4px -1px black;
+    flex-grow: 1;
 }
 
 .post {
@@ -22,14 +23,25 @@
     flex-grow: 1;
     flex-wrap: wrap;
     width: 100vw;
+    align-content: center;
+
 }
 
 .cards {
-    background-color: powderblue;
+
     display: flex;
-    padding: 8px;
+    justify-content: center;
     font-size: 1.2em;
     color: teal;
+    width: 40vw;
     text-align: left;
-    width: 20vw;
+}
+
+#contact {
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.messageForm fieldset {
+    width: 40vw;
 }
