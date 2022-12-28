@@ -87,7 +87,6 @@ function App() {
               setPosts={setPosts}
               posts={posts}
               postId={postId}
-              setPosts={setPosts}
               setPostId={setPostId}
               setDescription={setDescription}
               setPrice={setPrice}

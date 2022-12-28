@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import { getPost, postMessage } from "../api";
+import { postMessage } from "../api";
 import styles from "./SinglePosts.module.css";
 
 function SinglePost(props) {

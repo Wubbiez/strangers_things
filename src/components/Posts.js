@@ -9,7 +9,6 @@ function Posts(props) {
     setPosts,
     posts,
     setPostId,
-    postId,
     setDescription,
     setPrice,
     setTitle,
@@ -52,6 +51,7 @@ function Posts(props) {
                         setSeller(post.author.username);
                         setLocation(post.location);
                       }}
+                      href={""}
                     >
                       <Link to={`/${post._id}`}>{post.title}</Link>
                     </a>
@@ -65,7 +65,7 @@ function Posts(props) {
                   <tr key={post.author.username}>
                     Seller: {post.author.username}
                   </tr>
-                  {token && post.author.username == user ? (
+                  {token && post.author.username === user ? (
                     <tr>
                       <button
                         onClick={(event) => {

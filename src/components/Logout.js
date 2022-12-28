@@ -27,10 +27,10 @@ function Logout(props) {
 
   return (
     <div>
-      {currentPage == "/home" ||
-      currentPage == "/posts" ||
-      currentPage == "/register" ||
-      currentPage == "login" ? (
+      {currentPage === "/home" ||
+      currentPage === "/posts" ||
+      currentPage === "/register" ||
+      currentPage === "login" ? (
         <Link to={currentPage}>
           <button onClick={buttonHandle}>Logout</button>
         </Link>

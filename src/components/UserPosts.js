@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { fetchUserPosts, deletePost, editPost, postMessage } from "../api";
-import CreatePost from "./CreatePost";
-import { Link } from "react-router-dom";
 import styles from "./UserPosts.module.css";
 
 function UserPosts(props) {
@@ -133,7 +131,7 @@ function UserPosts(props) {
                         >
                           Reply
                         </button>
-                        {toggle2 && post._id == postId && (
+                        {toggle2 && post._id === postId && (
                           <div className={styles.sendMessage}>
                             <form
                               id="sendMessage"
@@ -176,7 +174,7 @@ function UserPosts(props) {
                         )}
                       </div>
                     ) : null}
-                    {toggle && post.title == postTitle && (
+                    {toggle && post.title === postTitle && (
                       <div className={styles.editForm}>
                         <form
                           id="editMessage"
