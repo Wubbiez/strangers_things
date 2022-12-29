@@ -8,7 +8,7 @@ import CreatePost from "./components/CreatePost";
 import Header from "./components/Header";
 import SinglePost from "./components/SinglePost";
 import React, { useState, useEffect } from "react";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, Redirect } from "react-router-dom";
 import { getUser } from "./api";
 import styles from "./App.module.css";
 
@@ -58,6 +58,9 @@ function App() {
       />
       <main className={styles.main}>
         <Switch>
+          <Route exact path={"/"}>
+            <Redirect to="/home" />
+          </Route>
           <Route exact path={"/home"}>
             <Home />
           </Route>

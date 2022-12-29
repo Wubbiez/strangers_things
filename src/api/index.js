@@ -148,9 +148,11 @@ export async function editPost(
   title,
   description,
   price,
+  location,
   willDeliver
 ) {
   try {
+    console.log(location);
     const response = await fetch(
       `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
       {
@@ -164,6 +166,7 @@ export async function editPost(
           post: {
             title: `${title}`,
             description: `${description}`,
+            location: `${location}`,
             price: `${price}`,
             willDeliver: `${willDeliver}`,
           },
