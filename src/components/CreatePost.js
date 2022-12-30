@@ -28,7 +28,7 @@ function CreatePost(props) {
   return (
     <div className={styles.container}>
       <div>
-        <h1>Create a new post</h1>
+        <h1>Create Post:</h1>
       </div>
 
       <div className={styles.editForm}>

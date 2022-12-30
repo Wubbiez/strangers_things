@@ -42,7 +42,7 @@ function Login(props) {
 
   return (
     <div className={styles.container}>
-      <h1>This is the Log-in page</h1>
+      <h1>Log-in:</h1>
       <input
         placeholder="Enter Your Username"
         value={username}

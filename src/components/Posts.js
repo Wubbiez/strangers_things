@@ -34,7 +34,7 @@ function Posts(props) {
     <>
       <div className={styles.container}>
         <div>
-          <h1>This is the posts page</h1>
+          <h1>Posts:</h1>
         </div>
         <div>
           <form

@@ -3,6 +3,7 @@
     flex-direction: column;
     margin-right: auto;
     margin-left: auto;
+    width: 20vw;
 }
 
 .container h1 {

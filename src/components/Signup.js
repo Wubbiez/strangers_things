@@ -17,7 +17,7 @@ function Signup(props) {
 
   return (
     <div className={styles.container}>
-      <h1>This is the Sign-up page</h1>
+      <h1>Register:</h1>
       <input
         placeholder="Enter Your Username"
         value={username}
