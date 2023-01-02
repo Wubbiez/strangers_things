@@ -36,63 +36,63 @@ function Header(props) {
       </div>
       <div className={styles.links}>
         {
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/home");
             }}
           >
             {" "}
             <Link to={"/home"}>Home</Link>
-          </a>
+          </button>
         }
         {
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/posts");
             }}
           >
             <Link to={"/posts"}>Posts</Link>
-          </a>
+          </button>
         }
         {!user && (
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/register");
             }}
           >
             {" "}
             <Link to={"/register"}>Register</Link>
-          </a>
+          </button>
         )}
         {!user && (
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/login");
             }}
           >
             {" "}
             <Link to={"/login"}>Login</Link>
-          </a>
+          </button>
         )}
         {user && (
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/userposts");
             }}
           >
             {" "}
             <Link to={"/userposts"}>My Posts</Link>
-          </a>
+          </button>
         )}
         {user && (
-          <a
+          <button
             onClick={() => {
               setCurrentPage("/createpost");
             }}
           >
             {" "}
             <Link to={"/createpost"}>New Post</Link>
-          </a>
+          </button>
         )}
         {user && (
           <Logout
