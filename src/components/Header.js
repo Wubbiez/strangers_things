@@ -41,7 +41,6 @@ function Header(props) {
               setCurrentPage("/home");
             }}
           >
-            {" "}
             <Link to={"/home"}>Home</Link>
           </button>
         }
@@ -60,7 +59,6 @@ function Header(props) {
               setCurrentPage("/register");
             }}
           >
-            {" "}
             <Link to={"/register"}>Register</Link>
           </button>
         )}
@@ -70,7 +68,6 @@ function Header(props) {
               setCurrentPage("/login");
             }}
           >
-            {" "}
             <Link to={"/login"}>Login</Link>
           </button>
         )}
@@ -80,7 +77,6 @@ function Header(props) {
               setCurrentPage("/userposts");
             }}
           >
-            {" "}
             <Link to={"/userposts"}>My Posts</Link>
           </button>
         )}
@@ -90,7 +86,6 @@ function Header(props) {
               setCurrentPage("/createpost");
             }}
           >
-            {" "}
             <Link to={"/createpost"}>New Post</Link>
           </button>
         )}
