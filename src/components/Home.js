@@ -9,11 +9,11 @@ function Home() {
       </div>
 
       <div>
-        <h3>
+        <p>
           This is a social website where you can buy and sell goods from
           strangers! Not to be confused with the Netflix original series
           (besides the similar logo).
-        </h3>
+        </p>
       </div>
     </div>
   );
