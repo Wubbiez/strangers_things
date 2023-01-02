@@ -77,7 +77,7 @@ function UserPosts(props) {
                         <tr key={post.location}>Location: {post.location}</tr>
                         <tr key={post.price}>Price: {post.price}</tr>
                         <tr key={post.willDeliver}>
-                          Delivery: {post.willDeliver.toString()}
+                          Delivery: {post.willDeliver === false ? "No" : "Yes"}
                         </tr>
                         <tr>
                           <button

@@ -11,6 +11,8 @@
     flex-direction: column;
     margin: 1em;
     box-shadow: 0 2px 4px -1px black;
+    border-collapse: collapse;
+    table-layout: fixed;
 }
 
 .post {
@@ -28,6 +30,7 @@
 
 .post tr {
     border-bottom: 1px solid black;
+    word-wrap: break-word;
 }
 
 .post tr:last-child {

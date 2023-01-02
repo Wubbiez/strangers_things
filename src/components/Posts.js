@@ -91,7 +91,7 @@ function Posts(props) {
                     <tr key={post.location}>Location: {post.location}</tr>
                     <tr key={post.price}>Price:{post.price}</tr>
                     <tr key={post.willDeliver}>
-                      Delivery: {post.willDeliver.toString()}
+                      Delivery: {post.willDeliver === false ? "No" : "Yes"}
                     </tr>
                     <tr key={post.author.username}>
                       Seller: {post.author.username}

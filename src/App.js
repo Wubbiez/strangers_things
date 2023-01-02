@@ -28,7 +28,7 @@ function App() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [price, setPrice] = useState("");
-  const [willDeliver, setWillDeliver] = useState(false);
+  const [willDeliver, setWillDeliver] = useState("");
   const [location, setLocation] = useState("");
   const [seller, setSeller] = useState("");
 

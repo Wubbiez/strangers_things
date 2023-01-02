@@ -21,15 +21,17 @@ function Header(props) {
   useEffect(() => {}, [token]);
   return (
     <header className={styles.container}>
-      <div className={styles.headerLogo}>
-        <img src={logo} />
+      <div className={styles.block}>
+        <div className={styles.headerLogo}>
+          <img src={logo} />
 
-        <div>
-          {token ? (
-            <div className={styles.user}>Welcome {user}!</div>
-          ) : (
-            <div className={styles.user}>Welcome Guest!</div>
-          )}
+          <div className={styles.welcome}>
+            {token ? (
+              <div className={styles.user}>Welcome {user}!</div>
+            ) : (
+              <div className={styles.user}>Welcome Guest!</div>
+            )}
+          </div>
         </div>
       </div>
       <div className={styles.links}>
