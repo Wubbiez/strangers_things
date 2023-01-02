@@ -10,8 +10,9 @@
     text-align: center;
 }
 
-.container p {
-    margin-left: 1em;
+.welcome p {
+    text-align: center;
+    font-size: 2em;
 }
 
 
