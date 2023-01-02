@@ -149,7 +149,6 @@ function App() {
               postId={postId}
               seller={seller}
               setSeller={setSeller}
-              user={user}
               posts={posts}
             />
           </Route>

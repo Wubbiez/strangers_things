@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import styles from "./Header.module.css";
 import Logout from "./Logout";
 import logo from "../images/logo.png";
@@ -23,7 +23,7 @@ function Header(props) {
     <header className={styles.container}>
       <div className={styles.block}>
         <div className={styles.headerLogo}>
-          <img src={logo} />
+          <img src={logo} alt={""} />
 
           <div className={styles.welcome}>
             {token ? (
