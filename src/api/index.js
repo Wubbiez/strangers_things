@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { TOKEN_STORAGE_KEY } from "../App";
 
 export const BASE_URL = "https://strangers-things.herokuapp.com";
 export const COHORT_NAME = "2209-FTB-ET-WEB-PT";
@@ -87,7 +85,7 @@ export async function createPost(
   location
 ) {
   try {
-    const response = await fetch(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
+    await fetch(`${BASE_URL}/api/${COHORT_NAME}/posts`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -128,15 +126,12 @@ export async function fetchUserPosts(token) {
 
 export async function deletePost(token, postId) {
   try {
-    const response = await axios.delete(
-      `${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`,
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    await axios.delete(`${BASE_URL}/api/${COHORT_NAME}/posts/${postId}`, {
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
   } catch (e) {
     console.error(e);
   }
@@ -197,7 +192,9 @@ export async function getUser(token) {
       return localStorage.getItem("user-name");
     }
   } catch (e) {
-    console.error(e);
+    console.log(
+      "User is not logged in, guest will experience limited functionality until login."
+    );
   }
 }
 

@@ -65,12 +65,13 @@ function Posts(props) {
             .filter((post) =>
               post.title.toLowerCase().includes(filterString.toLowerCase())
             )
-            .map((post) => {
+            .map((post, index) => {
               return (
                 <div>
                   <table className={styles.cards}>
                     <th>
                       <button
+                        className={styles.titlebutton}
                         onClick={() => {
                           setPostId(post._id);
                           setDescription(post.description);
@@ -86,15 +87,19 @@ function Posts(props) {
                         <Link to={`/${post._id}`}>{post.title}</Link>
                       </button>
                     </th>
-                    <tr key={post.description}>
+                    <tr key={`${index}_${post._id}_${post.description}`}>
                       Description:{post.description}
                     </tr>
-                    <tr key={post.location}>Location: {post.location}</tr>
-                    <tr key={post.price}>Price:{post.price}</tr>
-                    <tr key={post.willDeliver}>
+                    <tr key={`${index}_${post._id}_${post.location}`}>
+                      Location: {post.location}
+                    </tr>
+                    <tr key={`${index}_${post._id}_${post.price}`}>
+                      Price:{post.price}
+                    </tr>
+                    <tr key={`${index}_${post._id}_${post.willDeliver}`}>
                       Delivery: {post.willDeliver === false ? "No" : "Yes"}
                     </tr>
-                    <tr key={post.author.username}>
+                    <tr key={`${index}_${post._id}_${post.author.username}`}>
                       Seller: {post.author.username}
                     </tr>
                     {token && post.author.username === user ? (

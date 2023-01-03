@@ -64,7 +64,7 @@
     width: 20vw;
 }
 
-.container button, input[type="submit"], input[type="reset"] {
+.titlebutton, input[type="submit"], input[type="reset"] {
     background: none;
     color: inherit;
     border: none;
